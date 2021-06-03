@@ -1,1 +1,3 @@
 # Taller-Aspectos
+Ricardo Zaruma
+
