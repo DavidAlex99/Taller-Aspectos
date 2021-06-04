@@ -1,5 +1,9 @@
 package com.bank;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Calendar;
+
 public class User {
 
 	private int key;
@@ -43,5 +47,33 @@ public class User {
     public String toString() {
         return "User [key="+key+", name=" + name + ", id=" + id + ", money=" + money + "]";
     }
+    
+    public void llenadotxt(){
+    	Calendar cal = Calendar.getInstance();
+        int hora, minutos, segundos;
+        if(Bank.menu() == 2) {
+        	hora =cal.get(Calendar.HOUR_OF_DAY);
+			minutos = cal.get(Calendar.MINUTE);
+			segundos = cal.get(Calendar.SECOND);
+			String Shora = Integer.toString(hora);
+			String Sminutos = Integer.toString(minutos);
+			String Ssegundos = Integer.toString(segundos);
+			String hora_completa = Shora + "/" + Sminutos + "/" + Ssegundos;
+        }if(Bank.menu() == 3) {
+        	hora =cal.get(Calendar.HOUR_OF_DAY);
+			minutos = cal.get(Calendar.MINUTE);
+			segundos = cal.get(Calendar.SECOND);
+			String Shora = Integer.toString(hora);
+			String Sminutos = Integer.toString(minutos);
+			String Ssegundos = Integer.toString(segundos);
+			String hora_completa = Shora + "/" + Sminutos + "/" + Ssegundos;
+        }
+    }
+        //Aspecto: Deben hacer los puntos de cortes (pointcut) para crear un log con los tipos de transacciones realizadas.
 
+ 
+        
+    
 }
+
+
