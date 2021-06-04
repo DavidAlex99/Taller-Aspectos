@@ -1,6 +1,9 @@
 package com.bank;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class Bank {
@@ -80,11 +83,33 @@ public class Bank {
         int id = Integer.valueOf(readConsole("Key: "));
         double money = Double.valueOf(readConsole("Dinero a depositar: "));
         users.get(id-1).setMoney(users.get(id-1).getMoney() + money);
+        FileWriter file;
+		try {
+			file = new FileWriter("log.txt");
+			file.write("Deposito ");
+			file.write(llenadotxt());
+			file.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
     }
     public static void moneyWithdrawal(){
         int id = Integer.valueOf(readConsole("Key: "));
         double money = Double.valueOf(readConsole("Dinero a retirar: "));
         users.get(id-1).setMoney(users.get(id-1).getMoney() - money);
+        FileWriter file;
+		try {
+			file = new FileWriter("log.txt");
+			file.write("Retiro ");
+			file.write(llenadotxt());
+			file.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
     }
     public static void viewUsers(){
         System.out.println("------------------------------------");
@@ -94,4 +119,17 @@ public class Bank {
         System.out.println("------------------------------------");
     }
     
+    public static String llenadotxt(){
+    	Calendar cal = Calendar.getInstance();
+        int hora, minutos, segundos;
+        hora =cal.get(Calendar.HOUR_OF_DAY);
+		minutos = cal.get(Calendar.MINUTE);
+		segundos = cal.get(Calendar.SECOND);
+		String Shora = Integer.toString(hora);
+		String Sminutos = Integer.toString(minutos);
+		String Ssegundos = Integer.toString(segundos);
+		String hora_completa = Shora + ":" + Sminutos + ":" + Ssegundos;
+		return hora_completa;
+    
+}
 }

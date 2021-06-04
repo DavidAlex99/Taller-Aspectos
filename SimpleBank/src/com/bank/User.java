@@ -48,9 +48,18 @@ public class User {
         return "User [key="+key+", name=" + name + ", id=" + id + ", money=" + money + "]";
     }
     
-    public void llenadotxt(){
+    public static String llenadotxt(){
     	Calendar cal = Calendar.getInstance();
         int hora, minutos, segundos;
+        hora =cal.get(Calendar.HOUR_OF_DAY);
+		minutos = cal.get(Calendar.MINUTE);
+		segundos = cal.get(Calendar.SECOND);
+		String Shora = Integer.toString(hora);
+		String Sminutos = Integer.toString(minutos);
+		String Ssegundos = Integer.toString(segundos);
+		String hora_completa = Shora + "/" + Sminutos + "/" + Ssegundos;
+		return hora_completa;
+        /*
         if(Bank.menu() == 2) {
         	hora =cal.get(Calendar.HOUR_OF_DAY);
 			minutos = cal.get(Calendar.MINUTE);
@@ -67,7 +76,7 @@ public class User {
 			String Sminutos = Integer.toString(minutos);
 			String Ssegundos = Integer.toString(segundos);
 			String hora_completa = Shora + "/" + Sminutos + "/" + Ssegundos;
-        }
+        }*/
     }
         //Aspecto: Deben hacer los puntos de cortes (pointcut) para crear un log con los tipos de transacciones realizadas.
 
